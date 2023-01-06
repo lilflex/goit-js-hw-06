@@ -9,17 +9,16 @@ const ingredients = [
 
 const list = document.querySelector('#ingredients');
 
-const liArray = ingredients
-.map(ingredient => `<li class="item">${ingredient}</li>`)
-.join("")
-list.insertAdjacentHTML('beforeend',liArray)
-// const liArray = [];
+const liArray = ingredients.map(ingredient => {
+	const item = document.createElement('li')
+	item.className= 'item'
+	item.textContent = ingredient
+	return item
+});
+list.append(...liArray);
 
-// ingredients.forEach(ingredient => {
-// 	const item = document.createElement('li')
-// 	item.className = 'item'
-// 	item.textContent = ingredient
-// 	liArray.push(item)
-// });
-
-// list.append(...liArray);
+console.log(list)
+// const liArray = ingredients
+// .map(ingredient => `<li class="item">${ingredient}</li>`)
+// .join("")
+// list.insertAdjacentHTML('beforeend',liArray)
